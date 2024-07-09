@@ -1,5 +1,6 @@
 import Header from "../app/_components/Header";
 import Footer from "./_components/Footer";
+import "../styles/global.css";
 
 export default function RootLayout({
   children,
