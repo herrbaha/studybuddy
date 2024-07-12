@@ -1,10 +1,10 @@
 import Link from 'next/link'
+import Sidebar from './_components/Sidebar'
  
 export default function Page() {
   return (
     <div>
-      <h2>Home</h2>
-      <Link href="/about">About</Link>
+      <Sidebar/>
     </div>
   )
 }
