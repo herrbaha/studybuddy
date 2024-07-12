@@ -1,13 +1,25 @@
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import Page from '../app/page'
- 
-describe('Page', () => {
-  it('renders a heading', () => {
-    render(<Page />)
- 
-    const heading = screen.getByRole('heading', { level: 2 })
- 
-    expect(heading).toBeInTheDocument()
-  })
-})
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import Sidebar from "../app/_components/Sidebar";
+
+describe("Sidebar", () => {
+  it("should render without crushing ", () => {
+    render(<Sidebar clearAll={jest.fn()} fetchSidebar={jest.fn()} />);
+  });
+  it("should render expected elements inside ", () => {
+    render(<Sidebar />);
+    expect(screen.getByText("Home")).toBeInTheDocument();
+    expect(screen.getByText("About")).toBeInTheDocument();
+    expect(screen.getByText("Contact")).toBeInTheDocument();
+  });
+  it("should highlight the active link", () => {
+    render(<Sidebar activeLink="About" />);
+    expect(screen.getByTestId("about-link")).toHaveClass("active");
+  });
+  it("should call onLinkClick when a link is clicked", () => {
+    const mockOnLinkClick = jest.fn();
+    render(<Sidebar onLinkClick={mockOnLinkClick} />);
+    screen.getByText("Contact").click();
+    expect(mockOnLinkClick).toHaveBeenCalledWith("Contact");
+  });
+});
