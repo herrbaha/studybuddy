@@ -4,7 +4,7 @@ import logo from "../../public/StudyBuDY.png";
 
 const links = [
   { href: "/", text: "Home" },
-  { href: "/", text: "About Us" },
+  { href: "/about", text: "About Us" },
   { href: "/tutors", text: "Tutors" },
   { href: "/subjects", text: "Subjects" },
   { href: "/blog", text: "Blog" },
