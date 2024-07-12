@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
         <ul className="flex justify-center gap-6 md:gap-8 my-12">
           <li>
             <a
-              href=""
+              href="#"
               rel="noreferrer"
               target="_blank"
               className="text-gray-100 transition hover:text-customBlue"
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           </li>
           <li>
             <a
-              href=""
+              href="#"
               rel="noreferrer"
               target="_blank"
               className="text-gray-100 transition hover:text-customBlue"
