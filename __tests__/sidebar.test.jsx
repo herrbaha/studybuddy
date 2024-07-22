@@ -4,7 +4,7 @@ import Sidebar from "../app/_components/Sidebar";
 
 describe("Sidebar", () => {
   it("should render without crushing ", () => {
-    render(<Sidebar clearAll={jest.fn()} fetchSidebar={jest.fn()} />);
+    render(<Sidebar activeLink="home" onLinkClick={jest.fn()}/>);
   });
   it("should render expected elements inside ", () => {
     render(<Sidebar />);
@@ -15,6 +15,7 @@ describe("Sidebar", () => {
   it("should highlight the active link", () => {
     render(<Sidebar activeLink="About" />);
     expect(screen.getByTestId("about-link")).toHaveClass("active");
+    expect(screen.getByTestId("home-link")).not.toHaveClass("active");
   });
   it("should call onLinkClick when a link is clicked", () => {
     const mockOnLinkClick = jest.fn();
