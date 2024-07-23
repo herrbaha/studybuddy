@@ -87,7 +87,7 @@ describe("Header Component", () => {
     });
   });
 
-  describe("Mobile view", () => {
+  describe("Mobile view for header component", () => {
     beforeEach(() => {
       setMediaQuery(false);
     });
