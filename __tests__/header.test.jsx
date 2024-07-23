@@ -123,12 +123,23 @@ describe("HamburgerMenu Component", () => {
     }
   });
 
-  it("should render menu button", async () => {
+  it("should render menu buttons and toggle menu state", async () => {
     render(<HamburgerMenu links={links} />);
-    const button = screen.getByRole("button", { name: /toggle menu/i });
-    expect(button).toBeInTheDocument();
+    const buttonToggle = screen.getByRole("button", { name: /toggle menu/i });
+    expect(buttonToggle).toBeInTheDocument();
+    await userEvent.click(buttonToggle);
 
     const buttonClose = screen.getByRole("button", { name: /close menu/i });
     expect(buttonClose).toBeInTheDocument();
+    await userEvent.click(buttonClose);
+  });
+
+  it("should render social links correctly ", async () => {
+    render(<HamburgerMenu links={links} />);
+
+    const facebookLink = screen.getByText("Facebook");
+    expect(facebookLink).toBeInTheDocument();
+    const instagramLink = screen.getByText("Instagram");
+    expect(instagramLink).toBeInTheDocument();
   });
 });

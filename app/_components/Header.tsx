@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ handleClick }) => {
 
         <div className="">
           {isDesktop ? (
-            <nav className="md:flex md:items-center  ">
+            <nav className=" md:flex md:items-center  ">
               <ul className="flex items-center gap-6 text-md md:text-xl ">
                 {links.map((link) => (
                   <li key={link.href}>
