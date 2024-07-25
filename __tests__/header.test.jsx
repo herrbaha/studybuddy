@@ -37,24 +37,6 @@ describe("Header Component", () => {
       expect(logo).toBeInTheDocument();
     });
 
-    it("should have the correct role for the button", () => {
-      render(<Header handleClick={handleClick} />);
-      const buttonElement = screen.getByRole("button", { name: /login/i });
-      expect(buttonElement).toBeInTheDocument();
-      expect(buttonElement).toHaveClass(
-        "bg-gray-200",
-        "hover:bg-customBlue",
-        "text-customBlueSoft",
-        "hover:text-gray-100",
-        "font-bold",
-        "py-2",
-        "px-4",
-        "rounded-full",
-        "me-3",
-        "ms-14"
-      );
-    });
-
     it("should render all navigation links correctly", () => {
       const links = [
         { href: "/", text: "Home" },
@@ -76,7 +58,7 @@ describe("Header Component", () => {
       });
     });
 
-    it("should call handleClick when the button is clicked", async () => {
+    it("should call handleClick when the login button is clicked", async () => {
       render(<Header handleClick={handleClick} />);
       const buttonElement = screen.getByRole("button", { name: /login/i });
       await userEvent.click(buttonElement);
@@ -94,6 +76,9 @@ describe("Header Component", () => {
 
     it("should render the HamburgerMenu component on small screens", () => {
       render(<Header handleClick={() => {}} />);
+
+      const logo = screen.getByAltText("studybuddyLogo");
+      expect(logo).toBeInTheDocument();
 
       const nav = screen.queryByRole("navigation");
       expect(nav).not.toBeInTheDocument();

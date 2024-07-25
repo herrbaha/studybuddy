@@ -15,6 +15,7 @@ describe("Footer Component", () => {
     const logo = screen.getByAltText("studybuddyLogo");
     expect(logo).toBeInTheDocument();
   });
+
   it("should render all navigation links  correctly", () => {
     render(<Footer handleClick={handleClick} />);
     const links = [
