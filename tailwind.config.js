@@ -16,6 +16,9 @@ module.exports = {
         customPurple: "#8F2D56",
         customLightBlue: "#F2F9FF",
       },
+      boxShadow: {
+        'custom-all-sides': '0 0 10px 5px rgba(0, 0, 0, 0.1)',
+      },
     },
   },
   plugins: [],
