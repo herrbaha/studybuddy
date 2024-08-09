@@ -2,9 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/StudyBuDY.png";
-import { useMediaQuery } from "react-responsive";
-
 import HamburgerMenu from "./HamburgerMenu";
+import { useRouter } from 'next/navigation';
 
 const links = [
   { href: "/", text: "Home" },
@@ -20,21 +19,21 @@ export interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ handleClick }) => {
+  const router = useRouter();
   const handleLinkClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (handleClick) {
       handleClick(event);
     }
+    router.push('/login')
   };
-  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
     <header className="bg-customBlueSoft w-full">
       <div className="flex justify-between items-center mx-auto gap-8 px-4 sm:px-6 md:px-2 lg:px-8 h-20 md:h-40 lg:h-28">
         <Image src={logo} alt="studybuddyLogo" width={80} height={80} />
 
-        <div className="">
-          {isDesktop ? (
-            <nav className=" md:flex md:items-center  ">
+        <div>
+            <nav className=" hidden md:flex md:items-center  ">
               <ul className="flex items-center gap-6 text-md md:text-xl ">
                 {links.map((link) => (
                   <li key={link.href}>
@@ -54,11 +53,9 @@ const Header: React.FC<HeaderProps> = ({ handleClick }) => {
                 Login
               </button>
             </nav>
-          ) : (
             <div>
               <HamburgerMenu links={links} />
             </div>
-          )}
         </div>
       </div>
     </header>
