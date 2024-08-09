@@ -1,17 +1,23 @@
-import React from 'react'
-import data from '../../public/__mocks__/card_mocks.json'
-import Card from 'app/_components/Card'
-import { cardData } from 'app/types/types'
-import DashboardLayout from 'app/_components/DashboardLayout'
+import React from 'react';
+import data from '../../public/__mocks__/card_mocks.json';
+import DashboardLayout from 'app/_components/DashboardLayout';
+import { cardDataType } from 'app/types/types';
 
-type data = {
-  dashCardData: cardData
+interface Props {
+  dashboardCardData: cardDataType[];
 }
 
-const page:React.FC<data> = () => {
+const Page: React.FC<Props> = ({ dashboardCardData }) => {
   return (
-    <div><DashboardLayout dashCardData={data}/></div>
-  )
+    <div>
+      <DashboardLayout dashboardCardData={dashboardCardData} />
+    </div>
+  );
 }
 
-export default page
+// default prop olarak veriyi geçin
+Page.defaultProps = {
+  dashboardCardData: data,
+};
+
+export default Page;

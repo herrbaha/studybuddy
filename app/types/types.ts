@@ -1,4 +1,4 @@
-export type cardData = {
+export type cardDataType = {
     cardId: number,
     cardHeader: string,
     cardBody: string,
