@@ -1,18 +1,21 @@
 import React from 'react';
 import Sidebar from './Sidebar';
+import Card from './Card';
+import { cardDataType } from 'app/types/types';
 
-const DashboardLayout = () => {
+interface DashboardLayoutProps {
+  dashboardCardData: cardDataType[];
+}
+
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({ dashboardCardData }) => {
   return (
     <div className='flex flex-col md:flex-row'>
       <div className='h-24 md:h-96 w-full md:w-1/6 lg:w-1/12 bg-slate-600 text-white'>
-        <Sidebar/>
+        <Sidebar />
       </div>
       <div className='flex flex-col mx-auto mb-20 w-full'>
         <div className='flex flex-wrap justify-center h-auto sm:h-auto my-4 mx-auto py-1 px-4 bg-red-700'>
-          <div className='h-20 w-60 sm:w-48 bg-red-400 mx-2 md:mx-4 lg:mx-10 my-2 md:my-2'>CardContainer-1</div>
-          <div className='h-20 w-60 sm:w-48 bg-red-400 mx-2 md:mx-4 lg:mx-10 my-2 md:my-2'>CardContainer-2</div>
-          <div className='h-20 w-60 sm:w-48 bg-red-400 mx-2 md:mx-4 lg:mx-10 my-2 md:my-2'>CardContainer-3</div>
-          <div className='h-20 w-60 sm:w-48 bg-red-400 mx-2 md:mx-4 lg:mx-10 my-2 md:my-2'>CardContainer-4</div>
+          <Card dashCardData={dashboardCardData} />
         </div>
 
         <div className='h-96 w-10/12 mx-auto bg-violet-900'>
